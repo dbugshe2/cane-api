@@ -11,7 +11,7 @@ const canesRoutes = require("./src/routes/canes");
 const usersRoutes = require("./src/routes/canes");
 
 mongoose.connect(
-  `mongodb+srv://dbUser:she2artist@dmadmin-pla3i.mongodb.net/test?retryWrites=true&w=majority`,
+  `mongodb+srv://dbUser:${process.env.MONGO_ATLAS_PW}@dmadmin-pla3i.mongodb.net/test?retryWrites=true&w=majority`,
   { useNewUrlParser: true, useUnifiedTopology: true }
 );
 var db = mongoose.connection;
