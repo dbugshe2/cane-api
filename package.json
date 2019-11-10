@@ -4,9 +4,12 @@
   "description": "An API for a trackable walking stick",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index",
+    "lint": "eslint"
   },
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.7.0",
     "cors": "^2.8.5",
     "express": "^4.8.7",
@@ -16,7 +19,7 @@
     "moment-timezone": "^0.5.13",
     "mongodb": "^3.3.2",
     "mongodb-memory-server": "^5.2.5",
-    "mongoose": "^5.1.1",
+    "mongoose": "^5.7.9",
     "morgan": "^1.9.1",
     "node-uuid": "^1.4.8",
     "swagger-ui-express": "^2.0.13",
@@ -24,5 +27,21 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "nodemonConfig": {
+    "ignore": [
+      "node_modules/*"
+    ]
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "prettier": "^1.19.1"
+  }
 }
