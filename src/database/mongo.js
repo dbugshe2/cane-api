@@ -1,18 +1,19 @@
-const { MongoMemoryServer } = require('mongodb-memory-server');
-const { MongoClient } = require('mongodb');
+const { MongoClient } = require("mongodb");
 
 let database = null;
 
 async function startDatabase() {
-	const mongo = new MongoMemoryServer();
-	const mongoDBURL = await mongo.getConnectionString();
-	const connection = await MongoClient.connect(mongoDBURL, { useNewUrlParser: true, useUnifiedTopology: true });
-	database = connection.db();
+  const mongoDBURL = "mongodb://127.0.0.1:27017/canesDB";
+  const connection = await MongoClient.connect(mongoDBURL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  });
+  database = connection.db();
 }
 
 async function getDatabase() {
-  if (!database) await startDatabase()
-  return database
+  if (!database) await startDatabase();
+  return database;
 }
 
-module.exports = {getDatabase, startDatabase}
+module.exports = { getDatabase, startDatabase };

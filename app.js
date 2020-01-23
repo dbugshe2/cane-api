@@ -10,10 +10,10 @@ const app = express();
 const canesRoutes = require("./src/routes/canes");
 const usersRoutes = require("./src/routes/canes");
 
-mongoose.connect(
-  `mongodb+srv://dbUser:${process.env.MONGO_ATLAS_PW}@dmadmin-pla3i.mongodb.net/test?retryWrites=true&w=majority`,
-  { useNewUrlParser: true, useUnifiedTopology: true }
-);
+mongoose.connect(`mongodb://127.0.0.1:27017`, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 var db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", function() {
