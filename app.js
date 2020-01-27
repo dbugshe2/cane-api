@@ -18,7 +18,7 @@ var db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", function() {
   // we're connected!
-  console.log("were connecting");
+  console.log("We're connected to DB");
 });
 app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -42,7 +42,7 @@ app.use("/canes", canesRoutes);
 app.use("/users", usersRoutes);
 
 app.use((req, res, next) => {
-  const error = new Error("Not Found");
+  const error = new Error("404 NOT FOUNDe");
   error.status = 404;
   next(error);
 });

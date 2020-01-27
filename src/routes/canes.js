@@ -23,8 +23,8 @@ router.post("/", (req, res, next) => {
     .then(result => {
       console.log(result);
       res.status(201).json({
-        message: "Who give a canes POST fucks",
-        createdCane: result
+        message: "You added a new Walking stick",
+        createdStick: result
       });
     })
     .catch(err => {
@@ -45,7 +45,7 @@ router.get("/:caneId", (req, res, next) => {
       if (doc) {
         res.status(200).json(doc);
       } else {
-        res.status(404).json({ message: "unable to find Cane" });
+        res.status(404).json({ message: "unable to find that Walking stick" });
       }
     })
     .catch(err => {
@@ -56,8 +56,8 @@ router.get("/:caneId", (req, res, next) => {
 router.patch("/:caneId", (req, res, next) => {
   const id = req.params.caneId;
   const updateOps = {};
-  for (const ops of req.body) {
-    updateOps[ops.propName] = ops.value;
+  for (const [key, value] of Object.entries(req.body)) {
+    updateOps[key] = value;
   }
   Cane.update({ _id: id }, { $set: updateOps })
     .exec()
