@@ -46,7 +46,7 @@ router.post("/:caneId", (req, res, next) => {
     .then(result => {
       console.log(result);
       res.status(200).json({
-        message: `successfully updated ${_id}`,
+        message: `successfully updated ${id}`,
         ...result
       });
     })
