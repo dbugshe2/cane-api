@@ -35,6 +35,28 @@ router.post("/", (req, res, next) => {
       });
     });
 });
+router.post("/:caneId", (req, res, next) => {
+  const id = req.params.caneId;
+  const updateOps = {};
+  for (const [key, value] of Object.entries(req.body)) {
+    updateOps[key] = value;
+  }
+  Cane.update({ _id: id }, { $set: updateOps })
+    .exec()
+    .then(result => {
+      console.log(result);
+      res.status(200).json({
+        message: `successfully updated ${_id}`,
+        ...result
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({
+        error: err
+      });
+    });
+});
 
 router.get("/:caneId", (req, res, next) => {
   const id = req.params.caneId;
