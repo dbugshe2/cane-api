@@ -19,7 +19,7 @@
     "moment-timezone": "^0.5.13",
     "mongodb": "^3.3.2",
     "mongodb-memory-server": "^5.2.5",
-    "mongoose": "^5.7.9",
+    "mongoose": "^8.9.5",
     "morgan": "^1.9.1",
     "node-uuid": "^1.4.8",
     "swagger-ui-express": "^2.0.13",
